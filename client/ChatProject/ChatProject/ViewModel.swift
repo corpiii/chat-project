@@ -35,6 +35,7 @@ class ViewModel: NSObject {
     }
     
     func sendMessage(_ message: String?) {
-        
+        let webSocket = WebSocket.shared
+        webSocket.send(message: message ?? "")
     }
 }

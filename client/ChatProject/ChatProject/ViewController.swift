@@ -56,6 +56,14 @@ class ViewController: UIViewController {
         setUpView()
     }
     
+    override func loadView() {
+        viewModel.reloadDelegate = reloadTableView
+    }
+    
+    func reloadTableView() {
+        tableView.reloadData()
+    }
+    
     private func setUpView() {
         view.addSubview(stackView)
         
@@ -96,7 +104,7 @@ class ViewController: UIViewController {
     }
     
     @objc private func sendMessage() {
-        print(textField.text ?? "")
+        viewModel.sendMessage(textField.text)
     }
 }
 

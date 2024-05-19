@@ -24,7 +24,6 @@ class ViewModel: NSObject {
     
     override init() {
         let webSocket = WebSocket.shared
-        
         webSocket.url = URL(string: "ws://localhost:8080/api/")
         try? webSocket.openWebsocket()
         webSocket.onReceiveClosure = { (string, data) in
